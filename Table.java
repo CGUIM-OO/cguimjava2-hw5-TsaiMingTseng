@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Table {
-	public ststic final int MAXPLAYER = 4;
+	public static final int MAXPLAYER = 4;
 	private Deck deck;
 	private Player[] player;
 	private Dealer dealer;
