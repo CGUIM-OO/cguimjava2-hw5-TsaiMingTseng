@@ -21,6 +21,9 @@ public class Table {
 		dealer = d;
 	}
 	public Card get_face_up_card_of_dealer(){
+		ArrayList<Card> dThisRoundCard = dealer.getOneRoundCard();
+		Card card;
+		card = dThisRoundCard.get(1);
 		return null;
 	}
 	private void ask_each_player_about_bets(){
@@ -28,7 +31,7 @@ public class Table {
 		for(pos = 0 ; pos < MAXPLAYER ; pos ++){
 			Player contestant = player[pos];
 			contestant.sayHello();
-			pos_betArray[pos] =contestant.makeBet();
+			pos_betArray[pos] = contestant.makeBet();
 		}
 	}
 	private void distribute_cards_to_dealer_and_players(){
@@ -36,16 +39,16 @@ public class Table {
 		for(count = 0 ; count < 2 ; count ++){
 			for(pos = 0 ; pos < MAXPLAYER ; pos ++){
 				Player contestant = player[pos];
-				ArrayList<Card> FirstRound = new ArrayList<>();
-				Card card =deck.getOneCard(true);				
+				ArrayList<Card> FirstRound = contestant.getOneRoundCard();
+				Card card = deck.getOneCard(true);				
 				FirstRound.add(card);
 				contestant.setOneRoundCard(FirstRound);
 			}
 		}
-		ArrayList<Card> dFirstRound  = new ArrayList<>();
-		Card dcard1 =deck.getOneCard(false);
+		ArrayList<Card> dFirstRound = dealer.getOneRoundCard();
+		Card dcard1 = deck.getOneCard(false);
 		dFirstRound.add(dcard1);
-		Card dcard2 =deck.getOneCard(true);
+		Card dcard2 = deck.getOneCard(true);
 		dFirstRound.add(dcard2);
 		dealer.setOneRoundCard(dFirstRound);
 		System.out.print("Dealer's face up card is ");
@@ -58,7 +61,7 @@ public class Table {
 			boolean hit=false;
 			do{
 				if(contestant.getTotalValue()>21)break;
-				hit=contestant.hit_me(this); //this
+				hit=contestant.hit_me(this);
 				if(hit){
 					contestant.getOneRoundCard().add(deck.getOneCard(true));
 					contestant.setOneRoundCard(contestant.getOneRoundCard());
