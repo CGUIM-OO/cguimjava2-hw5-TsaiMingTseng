@@ -14,7 +14,7 @@ public class Dealer extends Person {
 				Player[] players = tbl.get_player();
 				int lose_count = 0;
 				int v_count = 0;
-				int[] betArray = tbl.get_palyers_bet();
+				int[] betArray = tbl.get_players_bet();
 				for (int i = 0; i < players.length; i++) {
 					if (players[i] == null) {
 						continue;

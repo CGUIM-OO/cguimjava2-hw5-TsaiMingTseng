@@ -1,5 +1,5 @@
 
-public class HW5 {
+public class HW10 {
 	public static void main(String[] args) {
 		Table tbl=new Table(4);
 		tbl.set_player(0, new Player("Palyer 1",300));

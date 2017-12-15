@@ -13,13 +13,11 @@ public abstract class Person {
 		int Ace_count = 0;
 		int total_value = 0;
 		for (Card c : oneRoundCard) {
-			
-			
-			
 			if (Ace_count == 0 && c.getRank() == 1) {
 				Ace_count = 1;
 				continue;
-			} else {
+			} 
+			else {
 				if (c.getRank() == 11 || c.getRank() == 12 || c.getRank() == 13)
 					total_value += 10;
 				else

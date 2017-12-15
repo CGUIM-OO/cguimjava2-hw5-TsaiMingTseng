@@ -24,7 +24,7 @@ public class Table {
 		ArrayList<Card> dThisRoundCard = dealer.getOneRoundCard();
 		Card card;
 		card = dThisRoundCard.get(1);
-		return null;
+		return card;
 	}
 	private void ask_each_player_about_bets(){
 		int pos;
@@ -83,12 +83,14 @@ public class Table {
 	}
 	private void ask_dealer_about_hits(){
 		boolean hit=false;
+		ArrayList<Card> dcard = new ArrayList<>();
 		do{
 			if(dealer.getTotalValue()>21)break;
-			hit=dealer.hit_me(this); //this
+			hit=dealer.hit_me(this); 
 			if(hit){
-				dealer.getOneRoundCard().add(deck.getOneCard(true));
-				dealer.setOneRoundCard(dealer.getOneRoundCard());
+				dcard = dealer.getOneRoundCard();
+				dcard.add(deck.getOneCard(true));
+				dealer.setOneRoundCard(dcard);
 				System.out.print("Hit! ");
 				System.out.println("Dealer's Cards now:");
 				for(Card c : dealer.getOneRoundCard()){
@@ -105,8 +107,7 @@ public class Table {
 		dThisRound = dealer.getOneRoundCard();
 		int count = 0 , pos = 0;
 		System.out.println("Dealer's card value is "+dealer.getTotalValue()+" ,Cards:");
-		for(count = 0 ; count < dThisRound.size() ; count++){
-			Card card = dThisRound.get(count);
+		for(Card card :dThisRound){
 			card.printCard();
 		}
 		for(pos = 0 ; pos < MAXPLAYER ; pos++){
@@ -130,7 +131,7 @@ public class Table {
 			}
 		}
 	}
-	public int[] get_palyers_bet(){
+	public int[] get_players_bet(){
 		return pos_betArray;
 	}
 	public void play(){
