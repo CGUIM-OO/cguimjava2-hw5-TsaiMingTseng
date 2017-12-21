@@ -112,13 +112,13 @@ public class Table {
 				System.out.println(", chips have no change!, the Chips now is: " + contestant.getCurrentChips());
 			}else if(dealer.getTotalValue()<=21&&contestant.getTotalValue()>21){
 				contestant.increaseChips(-pos_betArray[pos]);
-				System.out.println(", Lose "+ pos_betArray[pos]+" Chips, the Chips now is: " + contestant.getCurrentChips());
+				System.out.println(", Loss "+ pos_betArray[pos]+" Chips, the Chips now is: " + contestant.getCurrentChips());
 			}else if(dealer.getTotalValue()>21&&contestant.getTotalValue()<=21) {
 				contestant.increaseChips(pos_betArray[pos]);
 				System.out.println(", Get "+ pos_betArray[pos]+" Chips, the Chips now is: " + contestant.getCurrentChips());
 			}else if(dealer.getTotalValue()>contestant.getTotalValue()&&dealer.getTotalValue()<=21){
 				contestant.increaseChips(-pos_betArray[pos]);
-				System.out.println(", Lose "+ pos_betArray[pos]+" Chips, the Chips now is: " + contestant.getCurrentChips());
+				System.out.println(", Loss "+ pos_betArray[pos]+" Chips, the Chips now is: " + contestant.getCurrentChips());
 			}else if(dealer.getTotalValue()<contestant.getTotalValue()&&contestant.getTotalValue()<=21){
 				contestant.increaseChips(pos_betArray[pos]);
 				System.out.println(", Get "+ pos_betArray[pos]+" Chips, the Chips now is: " + contestant.getCurrentChips());
